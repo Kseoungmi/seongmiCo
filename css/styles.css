@@ -10124,7 +10124,7 @@ header.masthead h1 {
     font-size: 3.5rem;
   }
 }
-
+7
 #portfolio .container-fluid, #portfolio .container-sm, #portfolio .container-md, #portfolio .container-lg, #portfolio .container-xl {
   max-width: 1920px;
 }
@@ -10163,4 +10163,13 @@ header.masthead h1 {
 
 .text-white-75 {
   color: rgba(255, 255, 255, 0.75);
+}
+
+.containerspace{
+  background-color: #c51004;
+  opacity: 0.5;
+  /* border-radius: 10%; */
+}
+.bg-faded {
+  background-color: rgba(255,255,255,.85);
 }
