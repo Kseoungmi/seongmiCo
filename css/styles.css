@@ -10243,4 +10243,7 @@ header.masthead h1 {
     }}
 .fixb{
   position: fixed;
+  font-weight: 100;
+  font-size: large !important;
+  opacity: 0.9;
 }
