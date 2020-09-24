@@ -10099,8 +10099,9 @@ header.masthead {
   background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%), url("../assets/img/배경.jpg");
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: scroll;
+  /* background-attachment: scroll; */
   background-size: cover;
+  background-attachment: fixed;
 }
 header.masthead h1 {
   font-size: 2.25rem;
@@ -10124,7 +10125,6 @@ header.masthead h1 {
     font-size: 3.5rem;
   }
 }
-7
 #portfolio .container-fluid, #portfolio .container-sm, #portfolio .container-md, #portfolio .container-lg, #portfolio .container-xl {
   max-width: 1920px;
 }
@@ -10173,3 +10173,67 @@ header.masthead h1 {
 .bg-faded {
   background-color: rgba(255,255,255,.85);
 }
+.c0{
+  width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    box-sizing: border-box;
+    display: block;
+    font-family: Lora;
+}
+.c1{
+    margin-left: auto!important;
+    margin-right: auto!important;
+    margin-bottom: 1rem!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+    border-radius: .25rem!important;
+    max-width: 80%;
+    height: auto;
+    vertical-align: middle;
+    border-style: none;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+}
+.c2{
+  position: relative;
+}
+.c3{
+  position: absolute;
+}
+@media (min-width:992px){.intro .intro-img{width:75%;
+
+  float:right}
+  
+  .intro .intro-text{left:0;
+  
+  width:60%;
+  
+  margin-top:3rem;
+  
+  position:absolute}
+  
+  .intro .intro-text .intro-button{width:100%;
+  
+  left:0;
+  
+  position:absolute;
+  
+  bottom:-2rem}
+  }
+  @media (min-width:992px){
+    .about-heading 
+    .about-heading-img{
+      position:relative;
+      z-index:0;
+  }}
+    
+  @media (min-width:992px){
+    .product-item .product-item-title{
+      position:relative;
+      z-index:1;
+      margin-bottom:-3rem;
+    }}
