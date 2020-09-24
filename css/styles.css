@@ -10191,6 +10191,7 @@ header.masthead h1 {
     display: flex!important;
     border-radius: .25rem!important;
     max-width: 80%;
+    /* max-height: 80%; */
     height: auto;
     vertical-align: middle;
     border-style: none;
