@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <title>뭘넣으면 좋을까?</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
@@ -18,17 +19,128 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <script>
-            alert("미안합니다?")
-            function popup(){
-                var url = "popup.html";
-                var name = "미안합니다?";
-                var option = "width = 500, height = 500, top = 100, left = 200, location = no"
-                window.open(url, name, option);
+            var currentCallback;
+    
+    // override default browser alert
+    window.alert = function(msg, callback){
+      $('.message').text(msg);
+      $('.customAlert').css('animation', 'fadeIn 0.3s linear');
+      $('.customAlert').css('display', 'inline');
+      setTimeout(function(){
+        $('.customAlert').css('animation', 'none');
+      }, 300);
+      currentCallback = callback;
+    }
+    
+    $(function(){
+      
+      // add listener for when our confirmation button is clicked
+        $('.confirmButton').click(function(){
+        $('.customAlert').css('animation', 'fadeOut 0.3s linear');
+        setTimeout(function(){
+         $('.customAlert').css('animation', 'none');
+            $('.customAlert').css('display', 'none');
+        }, 300);
+        currentCallback();
+      })
+      
+      $('.rab').click(function(){
+        alert("", function(){
+          console.log("Callback executed");
+        })
+      });
+      
+      // our custom alert box
+      setTimeout(function(){
+        alert('', function(){
+            console.log("Callback executed");
+          });
+      }, 500);
+    });
+          </script>
+          <style>
+
+            
+            .customAlert{
+              
+              display: none;
+              position: fixed;
+              max-width: 40%;
+              min-width: 250px !important;
+              min-height: 33%;
+              
+              left: 40%;
+              top: 30%;
+              padding: 10px;
+              box-sizing: border-box;
+              margin-left: -12.5%;
+              margin-top: -5.2%;
+              background: #eee7dd;
+              
+              @media all and (max-width: 1300px){
+                .message{
+                  font-size: 14px !important;
+                }
+                input[type='button']{
+                  height: 15% !important;
+                }
+              }
             }
-        </script>
+              .message{
+                padding: 5px;
+                color: white;
+                font-size: 14px;
+                line-height: 20px;
+                text-align: justify;
+              }
+                
+              input[type='button']{
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                width: 50%;
+                height: 36px;
+                margin-top: -45px;
+                margin-left: -25%;
+                outline: 0;
+                border: 0;
+                background: #504f4f;
+                color: white;
+              }
+              
+            
+                  
+            .rab{
+              width: 200px;
+              height: 30px;
+              outline: 0;
+              border: 0;
+              color: white;
+              background: darken(#6cbb11, 5%);
+            }
+                  
+            @keyframes fadeOut{
+              from{
+                opacity: 1;
+              } 
+              to{
+                opacity: 0;
+              }
+            }
+                
+            @keyframes fadeIn{
+              from{
+                opacity: 0;
+              } 
+              to{
+                opacity: 1;
+              }
+            }
+          </style>
     </head>
-    <body id="page-top" class="bb" onload="javascript:popup()">
+    <body id="page-top" class="bb">
         <!-- Navigation-->
+        
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
                 <a class="navbar-brand js-scroll-trigger" href="index.html">아이콘넣어줘요</a>
@@ -58,6 +170,14 @@
                 </div>
             </div>
         </header>
+        <div class='customAlert rounded'>
+            
+            <img class="img-fluid" src="assets/img/sorry.jpg" alt="" />
+            <p class='message'></p>
+            <input type='button' class='confirmButton rounded' value='괜찮아요!'>
+        </div>
+            
+          <input type='button' class='rab' value='Raise alert' style="opacity: 0;">
         <!-- About-->
         <!-- <section class="page-section bg-primary" id="about">
             <div class="container">
@@ -230,6 +350,7 @@
         <!-- Footer-->
         <footer class="py-2 fixed-bottom">
             <div class="container"><div class="small text-right text-muted">저작권자 이름적으면됨</div></div>
+
         </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
