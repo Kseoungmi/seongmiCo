@@ -423,6 +423,7 @@ hr {
   margin-bottom: 1rem;
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+  color : #ffff;
 }
 
 small,
@@ -2651,8 +2652,8 @@ fieldset:disabled a.btn {
 
 .btn-light {
   color: #212529;
-  background-color: #f8f9fa;
-  border-color: #f8f9fa;
+  background-color: #00BFFF;
+  border-color: #57f4ff;
 }
 .btn-light:hover {
   color: #212529;
@@ -3940,7 +3941,7 @@ input[type=button].btn-block {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
   border-color: #dee2e6 #dee2e6 #fff;
 }
 .nav-tabs .dropdown-menu {
@@ -4304,7 +4305,7 @@ input[type=button].btn-block {
 }
 
 .navbar-dark .navbar-brand {
-  color: #fff;
+  color: rgb(255, 255, 255);
 }
 .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
   color: #fff;
@@ -10011,7 +10012,7 @@ hr.divider {
 }
 
 hr.light {
-  border-color: #fff;
+  border-color: rgba(47, 102, 254, 0.8);
 }
 
 .btn {
@@ -10033,7 +10034,7 @@ hr.light {
 
 #mainNav {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  background-color: #fff;
+  background-color: #ffff;
   transition: background-color 0.2s ease;
 }
 #mainNav .navbar-brand {
@@ -10093,7 +10094,7 @@ hr.light {
   }
 }
 .bb{
-  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%), url("../assets/img/배경.jpg");
+  background: linear-gradient(to bottom, rgba(3, 1, 29, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%), url("../assets/img/배경.jpg");
   background-position: center;
   background-repeat: no-repeat;
   /* background-attachment: scroll; */
@@ -10147,7 +10148,7 @@ header.masthead h1 {
   text-align: center;
   opacity: 0;
   color: #fff;
-  background: rgba(244, 98, 58, 0.9);
+  background: rgba(0, 63, 158, 0.8);
   transition: opacity 0.25s ease;
   text-align: center;
 }
@@ -10254,4 +10255,19 @@ header.masthead h1 {
   /* background-attachment: scroll; */
   background-size: cover;
   background-attachment: fixed;
+}
+.bluec{
+  background-color : #092991 !important;
+}
+.myback{
+  background-color: #878c97 !important;
+}
+.back1{
+  background-color: rgba(64, 102, 151, 0.8) !important;
+}
+.back2{
+  background-color: rgba(66, 66, 92, 0.8) !important;
+}
+.back3{
+  background-color: rgba(47, 102, 254, 0.8) !important;
 }
