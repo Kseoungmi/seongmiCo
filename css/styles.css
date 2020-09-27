@@ -10274,6 +10274,7 @@ header.masthead h1 {
 }
 .fitin{
   width: 10em;
+  z-index: 0;
 }
 .allow1{
   background: url("../assets/img/다음.jpg");
