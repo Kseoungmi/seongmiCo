@@ -10012,7 +10012,7 @@ hr.divider {
 }
 
 hr.light {
-  border-color: rgba(47, 102, 254, 0.8);
+  border-color: rgb(17, 74, 181,0.8);
 }
 
 .btn {
@@ -10263,11 +10263,14 @@ header.masthead h1 {
   background-color: #878c97 !important;
 }
 .back1{
-  background-color: rgba(64, 102, 151, 0.8) !important;
+  background-color: rgba(17, 74, 181,0.9) !important;
 }
 .back2{
   background-color: rgba(66, 66, 92, 0.8) !important;
 }
 .back3{
-  background-color: rgba(47, 102, 254, 0.8) !important;
+  background-color: rgba(17, 74, 181,0.8) !important;
+}
+.fitin{
+  width: 10em;
 }
