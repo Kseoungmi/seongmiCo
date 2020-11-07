@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEASONGAY</title>
+  <!-- Style-->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <!-- Script-->
+  <script src="assets/js/html5shiv.min.js"></script>
+  
+	
+	
+  <link rel="stylesheet" href="assets/css/index.css">
+  
+  
+</head>
+<body>
+	<div class="progress" id="progress">
+		<div id="loading">
+			<div class="loading-text">
+				<span class="loading-text-words">S</span>
+				<span class="loading-text-words">E</span>
+				<span class="loading-text-words">A</span>
+				<span class="loading-text-words">S</span>
+				<span class="loading-text-words">O</span>
+				<span class="loading-text-words">N</span>
+                <span class="loading-text-words">C</span>
+                <span class="loading-text-words">O</span>
+                <span class="loading-text-words">L</span>
+                <span class="loading-text-words">A</span>
+                <span class="loading-text-words">B</span>
+                <span class="loading-text-words">O</span>
+                <span class="loading-text-words">L</span>
+                <span class="loading-text-words">A</span>
+                <span class="loading-text-words">T</span>
+                <span class="loading-text-words">I</span>
+                <span class="loading-text-words">O</span>
+                <span class="loading-text-words">N</span>
+			</div>
+		</div>		
+    <span class="progress-bar"></span>
+    <span class="progress-text">0%</span>
+  </div>
+asd
+	<img src="a" style="visibility: hidden;"></a>
+
+	<!-- script-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script src="http://rendro.github.io/easy-pie-chart/javascripts/jquery.easy-pie-chart.js"></script>
+	<script src="assets/js/jquery.fittext.js"></script>
+	<script src="assets/js/skrollr.min.js"></script>
+	<script src="assets/js/lightgallery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+	<script src="assets/js/imagesloaded.pkgd.min.js"></script>
+	
+
+  <script>
+  
+    $(function(){
+       imagesProgress()
+    });
+    
+    /* 로딩 스크립트 함수 */
+    function imagesProgress() {
+      var $container = $('#progress'),
+      $progressBar = $container.find('.progress-bar'),
+      $progressText = $container.find('.progress-text'),
+      imgLoad = imagesLoaded('html'),
+      imgTotal = imgLoad.images.length,
+      imgLoaded = 0,
+      current = -1,
+      progressTimer = setInterval(updateProgress, 1000 / 60);
+
+      imgLoad.on('progress', function(){
+        imgLoaded++;
+      });
+
+      function updateProgress(){
+        var target = (imgLoaded / imgTotal) * 100;
+        current += (target - current) * 0.1;
+
+        $progressBar.css({ width: current + '%' });
+        $progressText.text( Math.floor(current) +  '%' );
+
+        if(current >= 100){ 
+          clearInterval(progressTimer);
+          $container.addClass('progress-complete');      
+          $progressBar.add($progressText).delay(500).animate({ opacity:0 }, 250, function(){
+            $container.animate({ top: '-100%' }, 1000, 'easeInOutQuint' );
+          });
+        };
+        if(current > 99.9){
+          current = 100;
+        };
+      };
+    };
+ 
+
+
+  /* 모바일 창 */
+    function pop_center(fname,wth,hgt){
+      var W = wth;
+      var H = hgt;
+      var X = screen.availWidth/2 - W/2;
+      var Y = screen.availHeight/2 - H/2;
+      var wname = fname.split(".")[0];
+      while(wname.indexOf("/")!=-1){
+         wname = wname.replace("/","_");
+      }
+      newWin = window.open(fname,wname,"width="+W+",height="+H+",left="+X+",top="+Y);
+      newWin.focus();
+    };
+  
+
+
+
+
+
+
+    
+  </script>	
+	
+</body>
+</html>
