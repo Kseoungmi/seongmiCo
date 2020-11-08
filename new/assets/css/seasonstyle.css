@@ -219,10 +219,10 @@ body {
   width: 100%;
   /* -webkit-filter: grayscale(0%);
           filter: grayscale(0%); */
-  -webkit-transition: height 1s 1.4s cubic-bezier(0.19, 1, 0.22, 1), -webkit-filter 0.4s 0.1s ease;
-  transition: height 1s 1.4s cubic-bezier(0.19, 1, 0.22, 1), -webkit-filter 0.4s 0.1s ease;
-  transition: height 1s 1.4s cubic-bezier(0.19, 1, 0.22, 1), filter 0.4s 0.1s ease;
-  transition: height 1s 1.4s cubic-bezier(0.19, 1, 0.22, 1), filter 0.4s 0.1s ease, -webkit-filter 0.4s 0.1s ease;
+  -webkit-transition: height 0s 0.4s cubic-bezier(0.19, 1, 0.22, 1), -webkit-filter 0.4s 0.1s ease;
+  transition: height 0s 0.4s cubic-bezier(0.19, 1, 0.22, 1), -webkit-filter 0.4s 0.1s ease;
+  transition: height 0s 0.4s cubic-bezier(0.19, 1, 0.22, 1), filter 0.4s 0.1s ease;
+  transition: height 0s 0.4s cubic-bezier(0.19, 1, 0.22, 1), filter 0.4s 0.1s ease, -webkit-filter 0.4s 0.1s ease;
 }
 .is-active .slide__img {
   height: 100%;
