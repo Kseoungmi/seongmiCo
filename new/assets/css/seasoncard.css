@@ -1,0 +1,13 @@
+.mycard{
+    background: none !important;
+    border: none !important;
+}
+.seasonposition{
+    margin-top: 10%;
+}
+.mycard :hover{
+    transition: all 0.5s;
+    transition-timing-function:ease;
+    border-radius: 50%;
+    background-color: rgba(103, 101, 255, 0.1);
+}
