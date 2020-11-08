@@ -1,140 +1,140 @@
-var curpage = 1;
-var sliding = false;
-var click = true;
-var left = document.getElementById("left");
-var right = document.getElementById("right");
-var pagePrefix = "slide";
-var pageShift = 500;
-var transitionPrefix = "circle";
-var svg = true;
-
-function leftSlide() {
-	if (click) {
-		if (curpage == 1) curpage = 5;
-		console.log("woek");
-		sliding = true;
-		curpage--;
-		svg = true;
-		click = false;
-		for (k = 1; k <= 4; k++) {
-			var a1 = document.getElementById(pagePrefix + k);
-			a1.className += " tran";
+(function($) {
+ 
+	var SliceSlider = {
+	  
+	  /**
+	   * Settings Object
+	   */
+	  settings: {
+		delta:              0,
+		currentSlideIndex:  0,
+		scrollThreshold:    40,
+		slides:             $('.slide'),
+		numSlides:          $('.slide').length,
+		navPrev:            $('.js-prev'),
+		navNext:            $('.js-next'),
+	  },
+	  
+	  /**
+	   * Init
+	   */
+	  init: function() {
+		s = this.settings;
+		this.bindEvents();
+	  },
+	  
+	  /**
+	   * Bind our click, scroll, key events
+	   */
+	  bindEvents: function(){
+		
+		// Scrollwheel & trackpad
+		s.slides.on({
+		  'DOMMouseScroll mousewheel' : SliceSlider.handleScroll
+		});
+		// On click prev
+		s.navPrev.on({
+		  'click' : SliceSlider.prevSlide
+		});
+		// On click next
+		s.navNext.on({
+		  'click' : SliceSlider.nextSlide
+		});
+		// On Arrow keys
+		$(document).keyup(function(e) {
+		  // Left or back arrows
+		  if ((e.which === 37) ||  (e.which === 38)){
+			SliceSlider.prevSlide();
+		  }
+		  // Down or right
+		  if ((e.which === 39) ||  (e.which === 40)) {
+			SliceSlider.nextSlide();
+		  }
+		});
+	  },
+	  
+	  /** 
+	   * Interept scroll direction
+	   */
+	  handleScroll: function(e){
+  
+		// Scrolling up
+		if (e.originalEvent.detail < 0 || e.originalEvent.wheelDelta > 0) { 
+  
+		  s.delta--;
+	   
+		  if ( Math.abs(s.delta) >= s.scrollThreshold) {
+			SliceSlider.prevSlide();
+		  }
 		}
-		setTimeout(() => {
-			move();
-		}, 200);
-		setTimeout(() => {
-			for (k = 1; k <= 4; k++) {
-				var a1 = document.getElementById(pagePrefix + k);
-				a1.classList.remove("tran");
-			}
-		}, 1400);
-	}
-}
-
-function rightSlide() {
-	if (click) {
-		if (curpage == 4) curpage = 0;
-		console.log("woek");
-		sliding = true;
-		curpage++;
-		svg = false;
-		click = false;
-		for (k = 1; k <= 4; k++) {
-			var a1 = document.getElementById(pagePrefix + k);
-			a1.className += " tran";
+   
+		// Scrolling Down
+		else {
+   
+		  s.delta++;
+   
+		  if (s.delta >= s.scrollThreshold) {
+			SliceSlider.nextSlide();
+		  }
 		}
-		setTimeout(() => {
-			move();
-		}, 200);
-		setTimeout(() => {
-			for (k = 1; k <= 4; k++) {
-				var a1 = document.getElementById(pagePrefix + k);
-				a1.classList.remove("tran");
-			}
-		}, 1400);
-	}
-}
-
-function move() {
-	if (sliding) {
-		sliding = false;
-		if (svg) {
-			for (j = 1; j <= 9; j++) {
-				var c = document.getElementById(transitionPrefix + j);
-				c.classList.remove("steap");
-				c.setAttribute("class", transitionPrefix + j + " streak");
-				console.log("streak");
-			}
-		} else {
-			for (j = 10; j <= 18; j++) {
-				var c = document.getElementById(transitionPrefix + j);
-				c.classList.remove("steap");
-				c.setAttribute("class", transitionPrefix + j + " streak");
-				console.log("streak");
-			}
+   
+		// Prevent page from scrolling
+		return false;
+	  },
+  
+	  /**
+	   * Show Slide
+	   */
+	  showSlide: function(){ 
+		// reset
+		s.delta = 0;
+		// Bail if we're already sliding
+		if ($('body').hasClass('is-sliding')){
+		  return;
 		}
-
-		// for(k=1;k<=4;k++){
-		//   var a1 = document.getElementById(pagePrefix + k);
-		//   a1.className += ' tran';
-		// }
-
-		setTimeout(() => {
-			for (i = 1; i <= 4; i++) {
-				if (i == curpage) {
-					var a = document.getElementById(pagePrefix + i);
-					a.className += " up1";
-				} else {
-					var b = document.getElementById(pagePrefix + i);
-					b.classList.remove("up1");
-				}
-			}
-			sliding = true;
-		}, 600);
-		setTimeout(() => {
-			click = true;
-		}, 1700);
-
-		setTimeout(() => {
-			if (svg) {
-				for (j = 1; j <= 9; j++) {
-					var c = document.getElementById(transitionPrefix + j);
-					c.classList.remove("streak");
-					c.setAttribute("class", transitionPrefix + j + " steap");
-				}
-			} else {
-				for (j = 10; j <= 18; j++) {
-					var c = document.getElementById(transitionPrefix + j);
-					c.classList.remove("streak");
-					c.setAttribute("class", transitionPrefix + j + " steap");
-				}
-				sliding = true;
-			}
-		}, 850);
-		setTimeout(() => {
-			click = true;
-		}, 1700);
-	}
-}
-
-left.onmousedown = () => {
-	leftSlide();
-};
-
-right.onmousedown = () => {
-	rightSlide();
-};
-
-document.onkeydown = e => {
-	if (e.keyCode == 37) {
-		leftSlide();
-	} else if (e.keyCode == 39) {
-		rightSlide();
-	}
-};
-
-//for codepen header
-setTimeout(() => {
-	rightSlide();
-}, 500);
+		// Loop through our slides
+		s.slides.each(function(i, slide) {
+  
+		  // Toggle the is-active class to show slide
+		  $(slide).toggleClass('is-active', (i === s.currentSlideIndex));                
+		  
+		  // Add and remove is-sliding class
+		  $('body').addClass('is-sliding');
+  
+		  setTimeout(function(){
+			  $('body').removeClass('is-sliding');
+		  }, 1000);
+		});
+	  },
+  
+	  /**
+	   * Previous Slide
+	   */
+	  prevSlide: function(){
+		
+		// If on first slide, loop to last
+		if (s.currentSlideIndex <= 0) {
+		  s.currentSlideIndex = s.numSlides;
+		}
+		s.currentSlideIndex--;
+		
+		SliceSlider.showSlide();
+	  },
+  
+	  /**
+	   * Next Slide
+	   */
+	  nextSlide: function(){
+		
+		s.currentSlideIndex++;
+	 
+		// If on last slide, loop to first
+		if (s.currentSlideIndex >= s.numSlides) { 
+		  s.currentSlideIndex = 0;
+		}
+   
+		SliceSlider.showSlide();
+	  },
+	};
+	SliceSlider.init();
+  })(jQuery);
