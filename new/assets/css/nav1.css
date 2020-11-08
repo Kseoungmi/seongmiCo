@@ -9,7 +9,12 @@ nav {
   margin: 0 auto;
   transform: translateY(-50%);
 }
-
+a:link {
+  text-decoration: none !important;
+}
+a:hover {
+  text-decoration: none !important;
+}
 nav a {
   position: relative;
   width: 33.333%;
