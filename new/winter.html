@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src='http://flickity.metafizzy.co/flickity.pkgd.min.js'></script> 
- 
+
 </head>
 
 <body>
@@ -70,7 +70,28 @@
       
     
   </div>
-  <script src="js/index1.js"></script>
+  <script>
+    var $gallery1 = $('#slider-1 .slides').flickity({
+      pageDots: false,
+      prevNextButtons: false,
+      wrapAround: true,
+      draggable: false
+    });
+       
+    var $gallery2 = $('#slider-2 .slides').flickity({
+      pageDots: false,
+      prevNextButtons: false,
+      initialIndex: 1,
+      wrapAround: true,
+      draggable: false
+    });
+    
+    $('.btn-next').on( 'click', function() {
+      $gallery1.flickity('next');
+      $gallery2.flickity('next');
+    });
+   </script>
+  <!-- <script src="js/index1.js"></script> -->
   
 </body>
 
