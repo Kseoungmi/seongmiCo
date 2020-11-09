@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공지</title>
     <style>
-        body{
-            background-image: url('assets/img/일반배경.png');
+        body {
+            background-image: url('assets/img/팝업.png');
             background-repeat: no-repeat;
             background-attachment: fixed;
-        background-size : 100% 100%;
+            background-size: 100% 100%;
+
 
         }
+        a:hover{
+            background-color: black;
+            opacity: 0.8;
+        }
     </style>
+    <script>
+        window.opener.location.href = "season.html";
+    </script>
 </head>
+
 <body>
-    <img src="assets/img/사전공지.png" style="width: 100%; height:auto">
+    <div style="position:absolute; left:50%;top:77%; transform:translateX(-50%);">
+        <a href="https://youtu.be/7KFATvc5KkM"><img src="assets/img/팝업01.png" onclick=" window.open('https:\/\/youtu.be/7KFATvc5KkM', '_blank'); return false;"></a>
+    </div>
 </body>
+
 </html>
