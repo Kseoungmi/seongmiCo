@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <title>규혁도윤 사계절 합작</title>
   <link rel="shortcut icon" type="image" href="assets/img/탭아이콘.jpg">
-
   <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/spring.css">
@@ -24,6 +23,126 @@
     font-weight :800 !important;
     font-size: larger;
 }
+</style>
+<script>
+  var currentCallback;
+
+// override default browser alert
+window.alert = function(msg, callback){
+$('.message').text(msg);
+$('.customAlert').css('animation', 'fadeIn 0.3s linear');
+$('.customAlert').css('display', 'inline');
+setTimeout(function(){
+$('.customAlert').css('animation', 'none');
+}, 300);
+currentCallback = callback;
+}
+
+$(function(){
+
+// add listener for when our confirmation button is clicked
+$('.confirmButton').click(function(){
+$('.customAlert').css('animation', 'fadeOut 0.3s linear');
+setTimeout(function(){
+$('.customAlert').css('animation', 'none');
+  $('.customAlert').css('display', 'none');
+}, 300);
+currentCallback();
+})
+
+$('.rab').click(function(){
+alert("", function(){
+console.log("Callback executed");
+})
+});
+
+// our custom alert box
+setTimeout(function(){
+alert('', function(){
+  console.log("Callback executed");
+});
+}, 500);
+});
+</script>
+<style>
+
+  
+  .customAlert{
+    z-index: 1;
+    display: none;
+    position: fixed;
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 1px !important;
+    min-height: 1px !important;
+    
+    left: 50%;
+    top: 20%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-left: -12.5%;
+    margin-top: -5.2%;
+    background: #eee7dd;
+    
+    @media all and (max-width: 1300px){
+      .message{
+        font-size: 14px !important;
+      }
+      input[type='button']{
+        height: 15% !important;
+      }
+    }
+  }
+    .message{
+      padding: 5px;
+      color: white;
+      font-size: 14px;
+      line-height: 20px;
+      text-align: justify;
+    }
+      
+    input[type='button']{
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      width: 50%;
+      height: 36px;
+      margin-top: -45px;
+      margin-left: -25%;
+      outline: 0;
+      border: 0;
+      background: #504f4f;
+      color: white;
+    }
+    
+  
+        
+  .rab{
+    width: 200px;
+    height: 30px;
+    outline: 0;
+    border: 0;
+    color: white;
+    background: darken(#6cbb11, 5%);
+  }
+        
+  @keyframes fadeOut{
+    from{
+      opacity: 1;
+    } 
+    to{
+      opacity: 0;
+    }
+  }
+      
+  @keyframes fadeIn{
+    from{
+      opacity: 0;
+    } 
+    to{
+      opacity: 1;
+    }
+  }
 </style>
 </head>
 
@@ -88,6 +207,7 @@
       </section>
     </section>
     </main>
+
       <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
     
         <script src="js/index2.js"></script>
@@ -95,5 +215,4 @@
       <script src="js/index1.js"></script>
 
 </body>
-
 </html>

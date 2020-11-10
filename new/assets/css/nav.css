@@ -121,3 +121,7 @@ nav a:nth-child(3):hover ~ #indicator {
   box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
   z-index: 125;
 }
+.bye{
+  background-image: url('/assets/img/팝업.png') !important;
+  z-index: 99;
+}

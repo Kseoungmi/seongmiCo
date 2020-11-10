@@ -21,13 +21,13 @@ ul, li, ol {list-style:none;}
 em, address {font-style:normal;}
 
 /* 테두리 초기화 */
-img, fieldset {border:0;}
+/* img, fieldset {border:0;} */
 
 /* 시멘틱 태그 블록화 */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
 
 /* 반응형 이미지 */
-img, video {width:100%;}
+/* img, video {width:100%;} */
 
 /* iphone */
 html {
@@ -204,7 +204,6 @@ html, body {
 	 */
 	position:static;
 }
-
 
 
 
